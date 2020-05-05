@@ -3,12 +3,18 @@ var sections = [];
 
 // CONFIGURATION VARIABLES
 module.exports = {
-    BasePath: './src/components/',
-    BaseSectionTitle: "Miscellaneous",
-    ComponentsRegex: "[A-Z]*.vue",
-    Verbose: false,
-    getSections: function () {
-        this.getDirectories(this.BasePath, PerformSectionAnalysis);//END GET DIRECTORIES
+    getSections: function (opts) {
+        const {
+            BasePath = './src/components/',
+            BaseSectionTitle = "Miscellaneous",
+            ComponentsRegex = "[A-Z]*.vue",
+            Verbose = false,
+        } = opts
+        this.getDirectories(BasePath,
+            function (err, files) {
+                PerformSectionAnalysis(err, files, BasePath, BaseSectionTitle, ComponentsRegex, Verbose)
+            }
+        );//END GET DIRECTORIES
         return sections;
     },
     getDirectories: function (src, callback) {
@@ -20,7 +26,7 @@ module.exports = {
 
 
 
-function PerformSectionAnalysis(err, res) {
+function PerformSectionAnalysis(err, res, BasePath, BaseSectionTitle, ComponentsRegex, Verbose) {
 
     if (err) {
         console.error('Error', err);
@@ -29,10 +35,10 @@ function PerformSectionAnalysis(err, res) {
         // PRINT THE DIRECTORY LISTING
         // IF WE ARE IN VERBOSE MODE
         if (this.verbose) {
-            console.log(module.exports.BasePath);
-            console.log(module.exports.BaseSectionTitle);
-            console.log(module.exports.ComponentsRegex);
-            console.log(module.exports.Verbose);
+            console.log(BasePath);
+            console.log(BaseSectionTitle);
+            console.log(ComponentsRegex);
+            console.log(Verbose);
             console.log(res);
         }
 
@@ -41,7 +47,7 @@ function PerformSectionAnalysis(err, res) {
         res.forEach(fullpath => {
             // REMOVE THE BASE PATH AND SPLIT THE SUBDIRECTORIES 
             // INTO THEIR OWN ELEMENTS
-            let path = fullpath.replace(module.exports.BasePath, '').split('/');
+            let path = fullpath.replace(BasePath, '').split('/');
 
             // CLEAN UP THE PATH BY REMOVING EMPTY VALUES
             path.forEach(el => {
@@ -53,9 +59,9 @@ function PerformSectionAnalysis(err, res) {
             // IF THIS IS THE BASE DIR, ADD IT TO SECTIONS
             if (path.length == 0) {
                 sections.push({
-                    name: module.exports.BaseSectionTitle,
+                    name: BaseSectionTitle,
                     children: [],
-                    components: module.exports.BasePath + module.exports.ComponentsRegex
+                    components: BasePath + ComponentsRegex
 
                 });
 
@@ -92,7 +98,7 @@ function PerformSectionAnalysis(err, res) {
                 sectionToAddTo.sections.push({
                     name: name,
                     children: [],
-                    components: fullpath + module.exports.ComponentsRegex
+                    components: fullpath + ComponentsRegex
                 });
 
             }
@@ -104,7 +110,7 @@ function PerformSectionAnalysis(err, res) {
                 sections.push({
                     name: name,
                     children: [],
-                    components: fullpath + module.exports.ComponentsRegex
+                    components: fullpath + ComponentsRegex
 
                 });
             }
@@ -113,7 +119,7 @@ function PerformSectionAnalysis(err, res) {
         });// END FOREACH FOLDER
 
         // IF WE ARE IN VERBOSE MODE PRINT THE SECTIONS TREE
-        if (module.exports.Verbose) {
+        if (Verbose) {
             console.log(JSON.stringify(sections, null, "\t"));
         }
     }// END IF IN ERROR

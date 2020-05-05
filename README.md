@@ -22,8 +22,7 @@ module.exports = {
   * string
 - Default 
   * `'./src/components/'`
-- Example Usage
-  * `DirSections.BasePath = './src/components/NewDir'`
+
 
 **BaseSectionTitle**  
 - Description
@@ -32,8 +31,6 @@ module.exports = {
   * string
 - Default 
   * `'Miscellaneous'`
-- Example Usage
-  * `DirSections.BaseSectionTitle = 'Uncategorized'`
 
 **ComponentsRegex**  
 - Description
@@ -42,8 +39,6 @@ module.exports = {
   * string
 - Default 
   * `'[A-Z]*.vue'`
-- Example Usage
-  * `DirSections.ComponentsRegex = '*.vue'`
 
 **Verbose**  
 - Description
@@ -52,5 +47,17 @@ module.exports = {
   * boolean
 - Default 
   * `false`
-- Example Usage
-  * `DirSections.Verbose = true`
+
+## Example
+```
+let DirSections = require('vue-styleguidist-auto-sections');
+
+module.exports = {
+    sections: DirSections.getSections({
+        BasePath: './src/components/documentthese',
+        BaseSectionTitle: "Extra bits",
+        ComponentsRegex: "*.vue",
+        Verbose: true,
+    })
+}
+```
