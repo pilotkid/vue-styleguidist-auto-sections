@@ -1,3 +1,4 @@
+![Node.js Package](https://github.com/pilotkid/vue-styleguidist-auto-sections/workflows/Node.js%20Package/badge.svg)
 # Installation
 1. From the terminal run: `npm install vue-styleguidist-auto-sections --save-dev`
 2. In your project (must have vue-style-guidist installed) open your `styleguide.config.js`
