@@ -6,7 +6,7 @@ module.exports = {
     BasePath: './src/components/',
     BaseSectionTitle: "Miscellaneous",
     ComponentsRegex: "[A-Z]*.vue",
-    verbose: true,
+    Verbose: false,
     getSections: function () {
         this.getDirectories(this.BasePath, PerformSectionAnalysis);//END GET DIRECTORIES
         return sections;
@@ -32,7 +32,7 @@ function PerformSectionAnalysis(err, res) {
             console.log(module.exports.BasePath);
             console.log(module.exports.BaseSectionTitle);
             console.log(module.exports.ComponentsRegex);
-            console.log(module.exports.verbose);
+            console.log(module.exports.Verbose);
             console.log(res);
         }
 
@@ -113,7 +113,7 @@ function PerformSectionAnalysis(err, res) {
         });// END FOREACH FOLDER
 
         // IF WE ARE IN VERBOSE MODE PRINT THE SECTIONS TREE
-        if (module.exports.verbose) {
+        if (module.exports.Verbose) {
             console.log(JSON.stringify(sections, null, "\t"));
         }
     }// END IF IN ERROR
