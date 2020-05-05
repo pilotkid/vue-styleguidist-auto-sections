@@ -1,5 +1,5 @@
 # Installation
-1. From the terminal run: `npm vue-styleguidist-auto-sections --save`
+1. From the terminal run: `npm install vue-styleguidist-auto-sections --save-dev`
 2. In your project (must have vue-style-guidist installed) open your `styleguide.config.js`
 3. Add a requirement `let DirSections = require('vue-styleguidist-auto-sections');`
 4. In the `module.exports` for vue-styleguidist add `sections: DirSections.getSections()`
