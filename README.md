@@ -21,9 +21,9 @@ module.exports = {
 - Type
   * string
 - Default 
-  * './src/components/'
+  * `'./src/components/'`
 - Example Usage
-  * DirSections.BasePath = './src/components/NewDir'
+  * `DirSections.BasePath = './src/components/NewDir'`
 
 **BaseSectionTitle**  
 - Description
@@ -31,9 +31,9 @@ module.exports = {
 - Type
   * string
 - Default 
-  * 'Miscellaneous'
+  * `'Miscellaneous'`
 - Example Usage
-  * DirSections.BaseSectionTitle = 'Uncategorized'
+  * `DirSections.BaseSectionTitle = 'Uncategorized'`
 
 **ComponentsRegex**  
 - Description
@@ -41,9 +41,9 @@ module.exports = {
 - Type
   * string
 - Default 
-  * '[A-Z]*.vue'
+  * `'[A-Z]*.vue'`
 - Example Usage
-  * DirSections.ComponentsRegex = '*.vue'
+  * `DirSections.ComponentsRegex = '*.vue'`
 
 **Verbose**  
 - Description
@@ -51,6 +51,6 @@ module.exports = {
 - Type
   * boolean
 - Default 
-  * false
+  * `false`
 - Example Usage
-  * DirSections.Verbose = true
+  * `DirSections.Verbose = true`
