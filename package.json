@@ -1,0 +1,26 @@
+{
+  "name": "vue-styleguidist-auto-sections",
+  "version": "1.0.0",
+  "description": "Adds sections to your styleguide by your directories",
+  "main": "styleguide-directory-sections.js",
+  "scripts": {
+    "test": "echo \"none\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pilotkid/vue-styleguidist-auto-sections.git"
+  },
+  "keywords": [
+    "vue",
+    "vuestyleguidist",
+    "styleguide",
+    "development",
+    "documentation"
+  ],
+  "author": "Marcello Bachechi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pilotkid/vue-styleguidist-auto-sections/issues"
+  },
+  "homepage": "https://github.com/pilotkid/vue-styleguidist-auto-sections#readme"
+}
