@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/pilotkid/vue-styleguidist-auto-sections/issues"
   },
-  "homepage": "https://github.com/pilotkid/vue-styleguidist-auto-sections#readme"
+  "homepage": "https://github.com/pilotkid/vue-styleguidist-auto-sections#readme",
+  "dependencies": {
+    "glob": "^7.1.6"
+  }
 }
